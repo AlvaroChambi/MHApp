@@ -1,6 +1,7 @@
 package com.mhseteditor;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -58,6 +59,12 @@ public class VViewSet extends Activity {
 		
 		updateInfo(set);
 	}
+	
+	@Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        
+    }
 
 	/**
 	 * @return the set

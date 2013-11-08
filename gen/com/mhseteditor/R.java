@@ -24,19 +24,21 @@ public final class R {
         public static final int charm=0x7f020000;
         public static final int chest=0x7f020001;
         public static final int feet=0x7f020002;
-        public static final int hand=0x7f020003;
-        public static final int head=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int mh_splash=0x7f020006;
-        public static final int sample_0=0x7f020007;
-        public static final int sample_1=0x7f020008;
-        public static final int sample_2=0x7f020009;
-        public static final int sample_3=0x7f02000a;
-        public static final int sample_4=0x7f02000b;
-        public static final int sample_5=0x7f02000c;
-        public static final int sample_6=0x7f02000d;
-        public static final int sample_7=0x7f02000e;
-        public static final int waist=0x7f02000f;
+        public static final int galerybutton=0x7f020003;
+        public static final int hand=0x7f020004;
+        public static final int head=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int mh_splash=0x7f020007;
+        public static final int sample_0=0x7f020008;
+        public static final int sample_1=0x7f020009;
+        public static final int sample_2=0x7f02000a;
+        public static final int sample_3=0x7f02000b;
+        public static final int sample_4=0x7f02000c;
+        public static final int sample_5=0x7f02000d;
+        public static final int sample_6=0x7f02000e;
+        public static final int sample_7=0x7f02000f;
+        public static final int waist=0x7f020010;
+        public static final int workshopbutton=0x7f020011;
     }
     public static final class id {
         public static final int FrameLayout1=0x7f080001;
@@ -44,7 +46,6 @@ public final class R {
         public static final int armorImage=0x7f080002;
         public static final int armorName=0x7f080003;
         public static final int backgroundInfoSet=0x7f08001c;
-        public static final int button2=0x7f08002a;
         public static final int button3=0x7f08002b;
         public static final int button4=0x7f08002c;
         public static final int charmImage=0x7f080027;
@@ -88,6 +89,7 @@ public final class R {
         public static final int tableRow8=0x7f080019;
         public static final int waistImage=0x7f080023;
         public static final int waistName=0x7f080024;
+        public static final int workshopButton=0x7f08002a;
     }
     public static final class layout {
         public static final int activity_galery=0x7f030000;

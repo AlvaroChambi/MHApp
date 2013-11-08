@@ -1,14 +1,14 @@
 package com.mhseteditor;
 
-import com.mhseteditor.controllers.CMenu;
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.ImageView;
+
+import com.mhseteditor.controllers.CMenu;
 
 public class VMenu extends Activity{
 	
-	private Button galeryButton;
+	private ImageView galeryButton;
 	private CMenu controller;
 	
 	@Override
@@ -17,7 +17,7 @@ public class VMenu extends Activity{
         setContentView(R.layout.activity_menu);
         
         controller = new CMenu(this);
-        galeryButton = (Button)findViewById(R.id.galeryButton);
+        galeryButton = (ImageView)findViewById(R.id.galeryButton);
         galeryButton.setOnClickListener(controller);
 	}
 
