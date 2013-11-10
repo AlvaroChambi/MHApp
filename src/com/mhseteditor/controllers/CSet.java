@@ -7,14 +7,14 @@ import android.view.View.OnClickListener;
 
 import com.mhseteditor.R;
 import com.mhseteditor.VInfoArmor;
-import com.mhseteditor.VViewSet;
+import com.mhseteditor.VSetManager;
 import com.seteditor.utils.Armor;
 
-public class CViewSet implements OnClickListener{
+public class CSet implements OnClickListener{
 	
-	private VViewSet view;
+	private VSetManager view;
 	
-	public CViewSet(VViewSet view){
+	public CSet(VSetManager view){
 		this.view = view;
 	}
 	

@@ -7,7 +7,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.mhseteditor.VGalery;
-import com.mhseteditor.VViewSet;
+import com.mhseteditor.VSetManager;
 
 public class CGalery implements OnItemClickListener {
 	
@@ -22,7 +22,8 @@ public class CGalery implements OnItemClickListener {
 		
 		Bundle bundle = new Bundle();
 		bundle.putInt("set_position", position);
-		Intent intent = new Intent(this.view,VViewSet.class);
+		//Intent intent = new Intent(this.view,VViewSet.class);
+		Intent intent = new Intent(this.view,VSetManager.class);
 		intent.putExtras(bundle);
 		
 		this.view.startActivity(intent);

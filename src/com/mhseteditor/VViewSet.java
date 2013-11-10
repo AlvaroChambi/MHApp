@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mhseteditor.controllers.CViewSet;
+import com.mhseteditor.controllers.CSet;
 import com.mhseteditor.models.MGalery;
 import com.mhseteditor.models.MSet;
 import com.seteditor.utils.Armor;
@@ -15,7 +15,7 @@ public class VViewSet extends Activity {
 	
 	private TextView[] armorNames;
 	private ImageView[] armorImages;
-	private CViewSet controller;
+	private CSet controller;
 	private MSet set;
 	
 	@Override
@@ -41,7 +41,7 @@ public class VViewSet extends Activity {
         armorImages[Armor.Feet.getId()] = (ImageView)findViewById(R.id.feetImage);
         armorImages[Armor.Charm.getId()] = (ImageView)findViewById(R.id.charmImage);
         
-        controller = new CViewSet(this);
+        //controller = new CSet(this);
         
         for(int i=0; i<armorNames.length; i++){
         	//armorNames[i].setOnClickListener(controller);
