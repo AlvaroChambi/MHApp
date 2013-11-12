@@ -59,7 +59,8 @@
                     android:id="@+id/headName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/head" />
+                    android:text="@string/head" 
+                    android:textColor="@color/white"/>
 
             </LinearLayout>
 
@@ -78,7 +79,8 @@
                     android:id="@+id/chestName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" 
-                    android:text="@string/chest"/>
+                    android:text="@string/chest"
+                    android:textColor="@color/white"/>
 
             </LinearLayout>
 
@@ -96,7 +98,8 @@
                     android:id="@+id/handName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/hand" />
+                    android:text="@string/hand" 
+                    android:textColor="@color/white"/>
 
             </LinearLayout>
 
@@ -114,7 +117,8 @@
                     android:id="@+id/waistName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/waist" />
+                    android:text="@string/waist"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
@@ -132,7 +136,8 @@
                     android:id="@+id/feetName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/feet"/>
+                    android:text="@string/feet"
+                    android:textColor="@color/white"/>
 
             </LinearLayout>
             
@@ -164,7 +169,8 @@
                     android:id="@+id/charmName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/charm" />
+                    android:text="@string/charm"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 

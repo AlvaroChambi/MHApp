@@ -12,7 +12,6 @@ import com.mhseteditor.controllers.CSet;
 import com.mhseteditor.models.MGalery;
 import com.mhseteditor.models.MSet;
 import com.seteditor.utils.Armor;
-import com.mhseteditor.VSetManager;
 
 public class SetPieces extends Fragment{
 	
@@ -27,15 +26,14 @@ public class SetPieces extends Fragment{
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //pageNumber = getArguments().getInt(ARG_PAGE);
-        pageNumber = 0;
+        pageNumber = getArguments().getInt(ARG_PAGE);
         view = (VSetManager)getActivity(); 
+        
     }
 	
 	public void onResume(){
 		super.onResume();
 		set = MGalery.getInstance().getSet(pageNumber);
-        view.setSet(set);
         updateInfo(set);
 	}
 
@@ -50,10 +48,10 @@ public class SetPieces extends Fragment{
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-		//Inflate the layout for this fragment
-		ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.setpieces, container, false);
+			//Inflate the layout for this fragment
+			ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.setpieces, container, false);
 
-		 armorNames = new TextView[6];
+			armorNames = new TextView[6];
 	        
 	        armorNames[Armor.Head.getId()] = (TextView)rootView.findViewById(R.id.headName);
 	        armorNames[Armor.Chest.getId()] = (TextView)rootView.findViewById(R.id.chestName);

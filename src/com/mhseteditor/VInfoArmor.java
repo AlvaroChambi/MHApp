@@ -39,7 +39,6 @@ public class VInfoArmor extends Activity{
 		int setId = bundle.getInt("set_id");
 		
 		armor = MGalery.getInstance().getSetById(setId).getArmor(armorSlot.getId());
-		
 		updateView(armor);
 	}
 	
@@ -69,17 +68,20 @@ public class VInfoArmor extends Activity{
 	 */
 	
 	public void updateView(MArmor armor){
-		armorName.setText(armor.getName());
-		resistances[0].setText("Dragon res: "+armor.getDragon_res());
-		resistances[1].setText("Fire res: "+armor.getFire_res());
-		resistances[2].setText("Ice res: "+armor.getIce_res());
-		resistances[3].setText("Thunder res: "+armor.getThunder_res());
-		resistances[4].setText("Water res: "+armor.getWater_res());
-		resistances[5].setText("Defense: "+armor.getDefense());
-		resistances[6].setText("Max Defense: "+armor.getMax_defense());
 		
-		for(int i=0; i<armor.getSkillsCount(); i++){
-			skills[i].setText(armor.getSkills().get(i).getName()) ;
+		if(armor!= null){
+			armorName.setText(armor.getName());
+			resistances[0].setText("Dragon res: "+armor.getDragon_res());
+			resistances[1].setText("Fire res: "+armor.getFire_res());
+			resistances[2].setText("Ice res: "+armor.getIce_res());
+			resistances[3].setText("Thunder res: "+armor.getThunder_res());
+			resistances[4].setText("Water res: "+armor.getWater_res());
+			resistances[5].setText("Defense: "+armor.getDefense());
+			resistances[6].setText("Max Defense: "+armor.getMax_defense());
+			
+			for(int i=0; i<armor.getSkillsCount(); i++){
+				skills[i].setText(armor.getSkills().get(i).getName()) ;
+			}
 		}
 	}
 

@@ -2,6 +2,7 @@ package com.mhseteditor.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -23,6 +24,9 @@ public class CSet implements OnClickListener{
 		Bundle bundle = new Bundle();
 		Intent intent = new Intent(view,VInfoArmor.class);
 		bundle.putInt("set_id", view.getSet().getId());
+		bundle.putInt("set_position", view.getSetPosition());
+		
+		Log.i("setManager","C. setId: "+view.getSet().getId());
 		
 		switch(element.getId()){
 		case R.id.headImage:

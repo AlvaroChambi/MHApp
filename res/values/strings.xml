@@ -11,5 +11,26 @@
     <string name="waist">Waist</string>
     <string name="feet">Feet</string>
     <string name="charm">Charm</string>
+    
+    <string name="salud">Salud</string>
+    <string name="resistencia">Resist.</string>
+    <string name="oxigeno">Oxígeno</string>
+	<string name="ataque">Ataque</string>
+	<string name="defensa">Defensa</string>
+	
+	<string name="fuego">Fuego</string>
+    <string name="agua">Agua</string>
+    <string name="hielo">Hielo</string>
+	<string name="trueno">Trueno</string>
+	<string name="dragon">Dragón</string>
+	
+	<string name="value0">0</string>
+    <string name="value100">100</string>
+    
+    <string name="habilidades">Hab. Activas</string>
+    
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00ffffff</color>
 
+	
 </resources>
