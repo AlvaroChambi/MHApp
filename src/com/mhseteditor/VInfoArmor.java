@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.mhseteditor.models.MArmor;
 import com.mhseteditor.models.MGalery;
-import com.seteditor.utils.Armor;
+import com.mhseteditor.utils.Armor;
 
 public class VInfoArmor extends Activity{
 	
@@ -78,10 +78,10 @@ public class VInfoArmor extends Activity{
 			resistances[4].setText("Water res: "+armor.getWater_res());
 			resistances[5].setText("Defense: "+armor.getDefense());
 			resistances[6].setText("Max Defense: "+armor.getMax_defense());
-			
+			/*
 			for(int i=0; i<armor.getSkillsCount(); i++){
 				skills[i].setText(armor.getSkills().get(i).getName()) ;
-			}
+			}*/
 		}
 	}
 

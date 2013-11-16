@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.mhseteditor.controllers.CSet;
 import com.mhseteditor.models.MGalery;
 import com.mhseteditor.models.MSet;
-import com.seteditor.utils.Armor;
+import com.mhseteditor.utils.Armor;
 
 public class SetPieces extends Fragment{
 	

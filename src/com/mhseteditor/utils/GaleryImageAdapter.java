@@ -1,4 +1,4 @@
-package com.seteditor.utils;
+package com.mhseteditor.utils;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,12 +11,12 @@ import android.widget.TextView;
 import com.mhseteditor.R;
 import com.mhseteditor.models.MGalery;
 
-public class ImageAdapter extends BaseAdapter {
+public class GaleryImageAdapter extends BaseAdapter {
 	
 	private Context context;
 	private MGalery galery;
 
-    public ImageAdapter(Context c) {
+    public GaleryImageAdapter(Context c) {
         context = c;
         galery = MGalery.getInstance();
     }
@@ -44,15 +44,11 @@ public class ImageAdapter extends BaseAdapter {
     	
     	inflatedView = inflater.inflate(R.layout.galery_item, null);
     	
-    	
-    	
     	setView = (ImageView)inflatedView.findViewById(R.id.setView);
         setName = (TextView)inflatedView.findViewById(R.id.setName);
     	
         if (convertView == null) {  // if it's not recycled, initialize some attributes
 
-            
-            
             //inflatedView.setLayoutParams(new GridView.LayoutParams(85, 85));
            // inflatedView.setScaleType(ImageView.ScaleType.CENTER_CROP);
            // inflatedView.setPadding(8, 8, 8, 8);
@@ -68,6 +64,7 @@ public class ImageAdapter extends BaseAdapter {
 
     // references to our images
     private Integer[] mThumbIds = {
+    		
             R.drawable.sample_2, R.drawable.sample_3,
             R.drawable.sample_4, R.drawable.sample_5,
             R.drawable.sample_6, R.drawable.sample_7,
@@ -80,5 +77,4 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.sample_4, R.drawable.sample_5,
             R.drawable.sample_6, R.drawable.sample_7
     };
-
 }

@@ -1,8 +1,10 @@
 package com.mhseteditor.models;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
-import com.seteditor.utils.Armor;
+import com.mhseteditor.utils.Armor;
 
 public class MArmor {
 	
@@ -19,12 +21,12 @@ public class MArmor {
 	private int defense;
 	private int max_defense;
 	private int jewelCount;
-	private int skillsCount;
 	private MJewel[] jewels;
-	private ArrayList<MSkill> skills;
+	private Map<String,Integer> skills;
+	
 	
 	public MArmor(){
-		skills = new ArrayList<MSkill>();
+		skills = new HashMap<String,Integer>();
 	}
 	
 	/**
@@ -188,12 +190,6 @@ public class MArmor {
 		return jewels;
 	}
 
-	/**
-	 * @return the skills
-	 */
-	public ArrayList<MSkill> getSkills() {
-		return skills;
-	}
 
 	/**
 	 * the jewel array is null if the number of slots it's not defined yet
@@ -215,20 +211,37 @@ public class MArmor {
 	}
 	
 	/**
-	 * Link a skill to the armor
-	 * @param skill
+	 * Return a set of the keys that are linked to the armor
+	 * @return
 	 */
 	
-	public void addSkill(MSkill skill){
-		skills.add(skill);
-		skillsCount++;
+	public Set<String> getSkills(){
+		return skills.keySet();
 	}
-
+	
 	/**
-	 * Return the number of skills linked to the armor
-	 * @return skillsCount
+	 * Return a skill value taking his key for paramenter
+	 * @param key
+	 * @return
 	 */
-	public int getSkillsCount() {
-		return skillsCount;
-	}	
+	
+	public int getSkill(String key){
+		int resul = 0;
+		if(skills.get(key)!= null){
+			resul = skills.get(key);
+		}
+		return resul;
+	}
+	
+	/**
+	 * Links a skill to the armor
+	 * @param key
+	 * @param value
+	 */
+	
+	public void addSkill(String key, int value){
+		skills.put(key, value);
+	}
+	
+	
 }

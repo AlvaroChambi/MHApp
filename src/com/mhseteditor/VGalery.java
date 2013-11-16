@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.GridView;
 
 import com.mhseteditor.controllers.CGalery;
-import com.seteditor.utils.ImageAdapter;
+import com.mhseteditor.utils.GaleryImageAdapter;
 
 public class VGalery extends Activity{
 	
@@ -17,7 +17,7 @@ public class VGalery extends Activity{
         setContentView(R.layout.activity_galery);
         
         GridView gridview = (GridView) findViewById(R.id.gridview);
-        ImageAdapter imageAdapter = new ImageAdapter(this);
+        GaleryImageAdapter imageAdapter = new GaleryImageAdapter(this);
         gridview.setAdapter(imageAdapter);
         
         controller = new CGalery(this);

@@ -8,8 +8,7 @@ import android.util.Log;
 import com.mhseteditor.models.MArmor;
 import com.mhseteditor.models.MGalery;
 import com.mhseteditor.models.MSet;
-import com.mhseteditor.models.MSkill;
-import com.seteditor.utils.Armor;
+import com.mhseteditor.utils.Armor;
 
 
 /**
@@ -111,18 +110,16 @@ public class DBManager {
 		/**************Load Armor Skills************/
 		
 		SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
-		queryBuilder.setTables("ARMORSKILL,SKILL");
-		queryBuilder.appendWhere("ARMORSKILL.skill__id = SKILL._id");
+		//queryBuilder.setTables("ARMORSKILL,SKILL");
+		queryBuilder.setTables("ARMORSKILL JOIN SKILL ON (ARMORSKILL.skill__id = SKILL._id)");
+		//queryBuilder.appendWhere("ARMORSKILL.skill__id = SKILL._id");
+		queryBuilder.appendWhere(armor.getId() +"= ARMORSKILL.armor__id");
 		String columns[] = {"_id","name","modifier"};
 		Cursor cursor = queryBuilder.query(database, columns, null, null, null, null, null);
 		 if(cursor.moveToFirst()){
 			 do{
-				 MSkill skill = new MSkill();
-				 skill.setId(cursor.getInt(0));
-				 skill.setName(cursor.getString(1));
-				 skill.setModifier(cursor.getInt(2));
-				 armor.addSkill(skill);
-
+				 armor.addSkill(cursor.getString(1), cursor.getInt(2));
+				
 		     }while(cursor.moveToNext());
 		 }
 		return armor;

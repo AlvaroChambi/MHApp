@@ -1,4 +1,4 @@
-package com.seteditor.utils;
+package com.mhseteditor.utils;
 
 public enum Armor {
 	Head (0),

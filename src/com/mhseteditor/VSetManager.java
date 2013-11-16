@@ -2,23 +2,26 @@
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.mhseteditor.models.MGalery;
 import com.mhseteditor.models.MSet;
-import com.seteditor.utils.PageAdapter;
-import com.seteditor.utils.PageChangedListener;
+import com.mhseteditor.utils.FragmentHelper;
 
 public class VSetManager extends FragmentActivity{
 	
+	public static final int INFO1 = 1;
+	public static final int INFO2 = 2;
+	
 	public static int NUM_PAGES;
 	private MSet set;
-	private ViewPager pager;
 	private int setPosition;
+	private int activePanel;
+	private FragmentHelper fragmentHelper;
+	private boolean fragmentsAdded;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,9 @@ public class VSetManager extends FragmentActivity{
 		setContentView(R.layout.activity_setmanager);
 		
 		NUM_PAGES = MGalery.getInstance().getCount();
+		activePanel = INFO1;
+		fragmentsAdded = false;
+		fragmentHelper = new FragmentHelper(this);
 		
 		Bundle bundle = getIntent().getExtras();
 		setPosition = bundle.getInt("set_position");
@@ -34,8 +40,16 @@ public class VSetManager extends FragmentActivity{
 	
 	public void onResume(){
 		super.onResume();
-		setPager();
-		//updateInfo1();
+		fragmentHelper.setPager();
+		fragmentHelper.addFragment();
+		Log.i("lifecycle","fragments añadidos");
+		//fragmentHelper.updateView();
+	}
+	
+	public void onPause(){
+		super.onPause();
+		fragmentHelper.resetFragments();
+		Log.i("lifecycle","fragments reseteados");
 	}
 
 	@Override
@@ -46,17 +60,7 @@ public class VSetManager extends FragmentActivity{
     }
 	
 	
-	public void setPager(){
-		
-		PageChangedListener pChangedListener = new PageChangedListener(this);
-		pager = (ViewPager) findViewById(R.id.pager);
-        
-        PageAdapter mPagerAdapter = new PageAdapter(getSupportFragmentManager());
-        pager.setAdapter(mPagerAdapter);
-        pager.setOffscreenPageLimit(1);
-        pager.setCurrentItem(setPosition);
-        pager.setOnPageChangeListener(pChangedListener);
-	}
+	
 	
 
 	/**
@@ -87,14 +91,7 @@ public class VSetManager extends FragmentActivity{
 		this.set = set;
 	}
 	
-	public void updateInfo1(){
-		FragmentManager fragmentManager = this.getSupportFragmentManager();
-		SetInfo1 infoFragment =(SetInfo1) fragmentManager.findFragmentById(R.id.setInfo1);
-		if(infoFragment!=null){
-			infoFragment.updateView(set);
-		}
-		
-	}
+	
 	
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -102,10 +99,63 @@ public class VSetManager extends FragmentActivity{
     	boolean resul = false;
 
         switch(item.getItemId()){
-        case R.id.setInfo1:
-        	//TODO Make fragment transaction to change this viewfragment
+        case R.id.info_page:
+        	
+        	
+        	if(activePanel == INFO1){
+        		item.setIcon(R.drawable.menu2);
+        	}else{
+        		item.setIcon(R.drawable.menu1);
+        	}
+
+        	fragmentHelper.switchFragment();
+        	updateActiveInfo();
         	break;
         }
        return resul;
     }
+	
+	
+	
+	private void updateActiveInfo(){
+		
+		if(activePanel == INFO1){
+			activePanel = INFO2;
+		}else{
+			activePanel = INFO1;
+		}
+	}
+	
+
+	/**
+	 * @return the activePanel
+	 */
+	public int getActivePanel() {
+		return activePanel;
+	}
+
+	/**
+	 * @param activePanel the activePanel to set
+	 */
+	public void setActivePanel(int activePanel) {
+		this.activePanel = activePanel;
+	}
+	
+	public FragmentHelper fragmentHelper(){
+		return fragmentHelper;
+	}
+
+	/**
+	 * @return the fragmentsAdded
+	 */
+	public boolean isFragmentsAdded() {
+		return fragmentsAdded;
+	}
+
+	/**
+	 * @param fragmentsAdded the fragmentsAdded to set
+	 */
+	public void setFragmentsAdded(boolean fragmentsAdded) {
+		this.fragmentsAdded = fragmentsAdded;
+	}
 }

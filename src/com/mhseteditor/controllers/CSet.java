@@ -9,7 +9,7 @@ import android.view.View.OnClickListener;
 import com.mhseteditor.R;
 import com.mhseteditor.VInfoArmor;
 import com.mhseteditor.VSetManager;
-import com.seteditor.utils.Armor;
+import com.mhseteditor.utils.Armor;
 
 public class CSet implements OnClickListener{
 	

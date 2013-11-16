@@ -3,14 +3,13 @@ package com.mhseteditor;
 
 import java.io.IOException;
 
-
-import com.mhseteditor.bbdd.DBManager;
-import com.mhseteditor.bbdd.DataBaseHelper;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.mhseteditor.bbdd.DBManager;
+import com.mhseteditor.bbdd.DataBaseHelper;
 
 public class VSplash extends Activity {
 	

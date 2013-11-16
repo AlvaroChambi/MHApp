@@ -23,11 +23,20 @@
             android:layout_width="0dp"
             android:layout_height="match_parent" >
         </android.support.v4.view.ViewPager>
-    	<fragment android:name="com.mhseteditor.SetInfo1"
-            android:id="@+id/setInfo1"
-            android:layout_weight="0.55"
+    	
+
+    	<FrameLayout
+    	    android:id="@+id/infoFrame"
+    	    android:layout_weight="0.55"
             android:layout_width="0dp"
-            android:layout_height="match_parent" />
+    	    android:layout_height="match_parent" >
+    	    <!--   <fragment android:name="com.mhseteditor.SetInfo1"
+            android:id="@+id/setInfo1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" /> -->
+    	  
+    	</FrameLayout>
+
     </LinearLayout>
 
 </FrameLayout>
