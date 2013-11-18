@@ -184,8 +184,12 @@ public final class R {
         public static final int head=0x7f050006;
         public static final int hello_world=0x7f050002;
         public static final int hielo=0x7f050014;
+        public static final int image_gallery_description=0x7f05001c;
+        public static final int image_workshop_description=0x7f05001d;
         public static final int item=0x7f050005;
         public static final int maxDef=0x7f050011;
+        public static final int menu_ajustes=0x7f05001a;
+        public static final int menu_favoritos=0x7f05001b;
         public static final int oxigeno=0x7f05000e;
         public static final int resistencia=0x7f05000d;
         public static final int salud=0x7f05000c;

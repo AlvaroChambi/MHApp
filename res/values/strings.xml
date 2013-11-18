@@ -35,6 +35,10 @@
     
     <color name="white">#FFFFFF</color>
     <color name="transparent">#00ffffff</color>
+    <string name="menu_ajustes">Ajustes</string>
+    <string name="menu_favoritos">Favoritos</string>
+    <string name="image_gallery_description">button image</string>
+    <string name="image_workshop_description">Workshop button</string>
 
 	
 </resources>
