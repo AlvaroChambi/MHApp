@@ -3,8 +3,8 @@ package com.mhseteditor.utils;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import com.mhseteditor.SetPieces;
 import com.mhseteditor.VSetManager;
+import com.mhseteditor.fragments.SetPieces;
 
 public class PageAdapter extends FragmentStatePagerAdapter {
 	

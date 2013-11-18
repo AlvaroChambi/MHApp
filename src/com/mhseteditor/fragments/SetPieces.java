@@ -1,4 +1,4 @@
-package com.mhseteditor;
+package com.mhseteditor.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mhseteditor.R;
+import com.mhseteditor.VSetManager;
 import com.mhseteditor.controllers.CSet;
 import com.mhseteditor.models.MGalery;
 import com.mhseteditor.models.MSet;
@@ -70,11 +72,8 @@ public class SetPieces extends Fragment{
 	        armorImages[Armor.Charm.getId()] = (ImageView)rootView.findViewById(R.id.charmImage);
 	        
 	        controller = new CSet(view);
+	        setClickListener(armorImages);
 	        
-	        for(int i=0; i<armorNames.length; i++){
-	        	//armorNames[i].setOnClickListener(controller);
-	        		armorImages[i].setOnClickListener(controller);
-	        }
         return rootView;
     }
 	
@@ -90,6 +89,18 @@ public class SetPieces extends Fragment{
 				armorNames[i].setText(set.getArmor(i).getName());
 			}
 		}
+	}
+	
+	/**
+	 * Set the click listener to the passed view list
+	 * @param list
+	 */
+	
+	private void setClickListener(View[] list){
+		
+		 for(int i=0; i<list.length; i++){
+	        	list[i].setOnClickListener(controller);
+	     }
 	}
 
 }

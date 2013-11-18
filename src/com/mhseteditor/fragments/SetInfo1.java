@@ -1,4 +1,4 @@
-package com.mhseteditor;
+package com.mhseteditor.fragments;
 
 
 import java.util.Iterator;
@@ -6,12 +6,13 @@ import java.util.Iterator;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.mhseteditor.R;
+import com.mhseteditor.VSetManager;
 import com.mhseteditor.models.MSet;
 import com.mhseteditor.utils.Abilitie;
 
@@ -24,7 +25,6 @@ public class SetInfo1 extends Fragment{
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i("fragmentLife","onCreate fragment info1");
     }
 	
 	@Override
@@ -61,25 +61,33 @@ public class SetInfo1 extends Fragment{
 		
         return rootView;
     }
-	
+	/**
+	 * Takes a set and updates the fragment view info taking in account the orientation.
+	 * @param set
+	 */
 	
 	public void updateView(MSet set){
 		
 		int orientation = getResources().getConfiguration().orientation;
 		switch(orientation){
 		case Configuration.ORIENTATION_LANDSCAPE:
+			
 			updateResistances(set);
 			updateAbilities(set);
+			
 			break;
 		case Configuration.ORIENTATION_PORTRAIT:
+			
 			updateResistances(set);
+			
 			break;
 		}
-
-		if(checkAvailability(set)){
-			
-		}
 	}
+	
+	/**
+	 * Updates the resistances with the set info
+	 * @param set
+	 */
 	private void updateResistances(MSet set){
 		
 		resistances[0].setText(String.valueOf(set.getTotalFireRes())) ;
@@ -91,6 +99,11 @@ public class SetInfo1 extends Fragment{
 		defense.setText(String.valueOf(set.getTotalDefense()));
 	}
 	
+	/**
+	 * Updates the abilities with the set info
+	 * @param set
+	 */
+	
 	private void updateAbilities(MSet set){
 		
 		String skill;
@@ -99,27 +112,20 @@ public class SetInfo1 extends Fragment{
 		
 		Iterator <String> iterator = set.getTotalSkills().iterator();
 		while(iterator.hasNext()){
+			String abilitieName = "";
 			skill = iterator.next();
 			value = set.getSkillValue(skill);
 			Abilitie abilitie = Abilitie.getActiveAbilitie(skill, value);
 			if(abilitie!=null){
-				abilities[i].setText(abilitie.toString());
+				abilitieName = abilitie.getName();
 			}
+			abilities[i].setText(abilitieName);
+			i++;
 		}
 		
-	}
-	
-	private boolean checkAvailability(MSet set){
-		
-		boolean resul = false;
-		if(set!= null && resistances!= null){
-			resul = true;
+		for(int j =i; j<abilities.length; j++){
+			abilities[j].setText("");
 		}
-		
-		return resul;
 	}
-		
-		
 	
-
 }

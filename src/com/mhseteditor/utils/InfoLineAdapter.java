@@ -3,7 +3,6 @@ package com.mhseteditor.utils;
 import java.util.Iterator;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import android.widget.TextView;
 import com.mhseteditor.R;
 import com.mhseteditor.models.MArmor;
 import com.mhseteditor.models.MSet;
+
 
 public class InfoLineAdapter extends BaseAdapter{
 	
@@ -78,25 +78,31 @@ public class InfoLineAdapter extends BaseAdapter{
 		this.set = set;
 	}
 	
+	/**
+	 * Updates the skills line of the table according to the position passed
+	 * @param position
+	 */
+	
 	private void updateView(int position){
+		
 		if(skills.length>0){
-			Log.i("ListSkill","set name: "+set.getName());
 			skill.setText(skills[position]);
 			String skill = skills[position];
-			Log.i("ListSkill",skill);
+
 			for(int i=0; i<skillValues.length; i++){
-				
-				MArmor armor = set.getArmor(i);
 				int value = 0;
+				MArmor armor = set.getArmor(i);
 				if(armor!=null){
-					Log.i("ListSkill",armor.getName());
-					value = armor.getSkill(skill);
-					Log.i("ListSkill","value: "+armor.getSkill(skill));
+					value = armor.getSkillValue(skill);
 				}
 				skillValues[i].setText(String.valueOf(value));
 			}
 		}
 	}
+	
+	/**
+	 * Initialize the list of skills linked to the armor
+	 */
 	
 	private void initSkills() {
 		

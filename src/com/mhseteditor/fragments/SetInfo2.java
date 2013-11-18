@@ -1,4 +1,4 @@
-package com.mhseteditor;
+package com.mhseteditor.fragments;
 
 import java.util.Iterator;
 
@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.mhseteditor.R;
+import com.mhseteditor.VSetManager;
 import com.mhseteditor.models.MSet;
 import com.mhseteditor.utils.Abilitie;
 import com.mhseteditor.utils.InfoLineAdapter;
@@ -46,51 +48,64 @@ public class SetInfo2 extends Fragment{
 		abilities[8] = (TextView)rootView.findViewById(R.id.hab9);
 		abilities[9] = (TextView)rootView.findViewById(R.id.hab10);
 		
-		setListView();
-		VSetManager view = (VSetManager)getActivity();
+		VSetManager view = (VSetManager) getActivity();
 		updateView(view.getSet());
+		
 		Log.i("lyfecicle","SetInfo2 inflated and added");
         return rootView;
     }
 	
+	/**
+	 * Takes a set and updates the fragments view info taking in account the orientation.
+	 * @param set
+	 */
+	
 	public void updateView(MSet set){
-		
-		String skill;
-		int value;
-		int i = 0;
 		
 		int orientation = getResources().getConfiguration().orientation;
 		
 		switch(orientation){
 		case Configuration.ORIENTATION_LANDSCAPE:
 			
-			if(adapter!=null){
-				adapter.updateSet(set);
-				lineView.setAdapter(adapter);
-			}
+			adapter = new InfoLineAdapter(getActivity(),set);
+			adapter.updateSet(set);
+			lineView.setAdapter(adapter);
+			
 			break;
 		case Configuration.ORIENTATION_PORTRAIT:
-
-			Iterator <String> iterator = set.getTotalSkills().iterator();
-			while(iterator.hasNext()){
-				skill = iterator.next();
-				value = set.getSkillValue(skill);
-				Abilitie abilitie = Abilitie.getActiveAbilitie(skill, value);
-				if(abilitie!=null){
-					abilities[i].setText(abilitie.toString());
-				}
-			}
+			
+			updateAbilities(set);
+			
 			break;
 		}
 	}
 	
-	private void setListView(){
-		int orientation = getResources().getConfiguration().orientation;
-		if(orientation == Configuration.ORIENTATION_LANDSCAPE){
-			VSetManager view = (VSetManager) getActivity();
-			
-			adapter = new InfoLineAdapter(getActivity(),view.getSet());
-			lineView.setAdapter(adapter);
-		}	
+	/**
+	 * Updates the abilities with the set info
+	 * @param set
+	 */
+	
+	private void updateAbilities(MSet set){
+		
+		String skill;
+		int value;
+		int i = 0;
+		
+		Iterator <String> iterator = set.getTotalSkills().iterator();
+		while(iterator.hasNext()){
+			String abilitieName = "";
+			skill = iterator.next();
+			value = set.getSkillValue(skill);
+			Abilitie abilitie = Abilitie.getActiveAbilitie(skill, value);
+			if(abilitie!=null){
+				abilitieName = abilitie.getName();
+			}
+			abilities[i].setText(abilitieName);
+			i++;
+		}
+		
+		for(int j =i; j<abilities.length; j++){
+			abilities[j].setText("");
+		}
 	}
 }

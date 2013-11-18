@@ -1,7 +1,6 @@
 package com.mhseteditor.utils;
 
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.util.Log;
 
 import com.mhseteditor.VSetManager;
 import com.mhseteditor.models.MGalery;
@@ -28,8 +27,7 @@ public class PageChangedListener implements OnPageChangeListener{
 		
 		view.setSetPosition(position);
 		view.setSet(MGalery.getInstance().getSet(position));
-		Log.i("lifecycle","fragments actualizandose...");
-		view.fragmentHelper().updateView();
+		view.updateView();
 	}
 
 }

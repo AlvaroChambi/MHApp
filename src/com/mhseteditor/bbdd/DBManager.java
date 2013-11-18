@@ -92,7 +92,7 @@ public class DBManager {
 			         armor.setWater_res(cursor.getInt(8));
 			         armor.setIce_res(cursor.getInt(9));
 			         armor.setHunter_type(cursor.getString(10));
-			         armor.setNumSlots(11);
+			         armor.setNumSlots(cursor.getInt(11));
 			         armor = loadSkills(armor);
 			         set.addArmor(armor);
 

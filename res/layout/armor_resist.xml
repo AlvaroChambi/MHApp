@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/FrameLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+      <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/framemh"
+        android:layout_margin="10dip"
+        android:contentDescription = "@string/background" />
+    
+    <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dip"
+            android:layout_marginBottom="30dip"
+            android:layout_marginRight="35dip"
+            android:layout_marginLeft="35dip"
+            android:stretchColumns="4">
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dip"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="@string/agua"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/waterValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dip"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/value0"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fuego"
+                    android:gravity="left"
+                    android:layout_margin="5dip" 
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/fireValue"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/value0" 
+                    android:gravity="right" 
+                    android:layout_margin="5dip"
+                    android:textColor="@color/white" />
+
+            </TableRow>
+            
+              <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+
+                  <TextView
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_margin="5dip"
+                      android:layout_weight="1"
+                      android:gravity="left"
+                      android:text="@string/trueno"
+                      android:textColor="@color/white" />
+
+                  <TextView
+                      android:id="@+id/thunderValue"
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_margin="5dip"
+                      android:layout_weight="1"
+                      android:gravity="right"
+                      android:text="@string/value0"
+                      android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hielo"
+                    android:gravity="left"
+                    android:layout_margin="5dip" 
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/iceValue"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/value0"
+                    android:gravity="right" 
+                    android:layout_margin="5dip" 
+                    android:textColor="@color/white"/>
+
+            </TableRow>
+
+              <TableRow
+                  android:layout_width="wrap_content"
+                  android:layout_height="0dp"
+                  android:layout_weight="1" >
+
+                  <TextView
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_margin="5dip"
+                      android:layout_weight="1"
+                      android:gravity="left"
+                      android:text="@string/defensa"
+                      android:textColor="@color/white" />
+
+                  <TextView
+                      android:id="@+id/defValue"
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_margin="5dip"
+                      android:layout_weight="1"
+                      android:gravity="right"
+                      android:text="@string/value0"
+                      android:textColor="@color/white" />
+
+                  <TextView
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_margin="5dip"
+                      android:layout_weight="1"
+                      android:gravity="left"
+                      android:text="@string/dragon"
+                      android:textColor="@color/white" />
+
+                  <TextView
+                      android:id="@+id/dragonValue"
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_margin="5dip"
+                      android:layout_weight="1"
+                      android:gravity="right"
+                      android:text="@string/value0"
+                      android:textColor="@color/white" />
+              </TableRow>
+            
+               <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/maxDef"
+                    android:gravity="left"
+                    android:layout_margin="5dip" 
+                    android:textColor="@color/white"/>
+
+                <TextView
+                     android:id="@+id/maxDefValue"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/value0"                     
+                    android:gravity="right"
+                    android:layout_margin="5dip"
+                    android:textColor="@color/white" />
+
+            </TableRow>  
+
+        </TableLayout>
+
+</FrameLayout>

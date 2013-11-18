@@ -1,19 +1,22 @@
 package com.mhseteditor.utils;
 
-import android.content.res.Configuration;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
 import com.mhseteditor.R;
-import com.mhseteditor.SetInfo1;
-import com.mhseteditor.SetInfo2;
 import com.mhseteditor.VSetManager;
+import com.mhseteditor.fragments.SetInfo1;
+import com.mhseteditor.fragments.SetInfo2;
 
+/**
+ * Class that handles all the interaction between the holder view and the fragments.
+ * 
+ * @author Leid
+ *
+ */
 
-
-public class FragmentHelper {
+public class SetFragmentHelper {
 	
 	private static final String INFO1_TAG = "tag1";
 	private static final String INFO2_TAG = "tag2";
@@ -23,7 +26,7 @@ public class FragmentHelper {
 	private SetInfo2 setInfo2;
 	private FragmentManager fragmentManager;
 	
-	public FragmentHelper(VSetManager view){
+	public SetFragmentHelper(VSetManager view){
 		this.view = view;
 		setInfo1 = new SetInfo1();
 		setInfo2 = new SetInfo2();
@@ -33,7 +36,7 @@ public class FragmentHelper {
 	
 	/**
 	 * Initializes the fragment view and attaches it to the main view.
-	 * Checks the orientation and which has to be the active info panel and
+	 * Checks which has to be the active info panel and
 	 * adds the respective fragment.
 	 */
 
@@ -41,33 +44,20 @@ public class FragmentHelper {
 		
 		FragmentTransaction transaction = fragmentManager.beginTransaction();
 		
-		int orientation = view.getResources().getConfiguration().orientation;
-		if(orientation == Configuration.ORIENTATION_PORTRAIT){
-			if(view.getActivePanel() == VSetManager.INFO1){
-				transaction.add(R.id.infoFrame,setInfo1,INFO1_TAG);
-				transaction.commit();
-				view.setFragmentsAdded(true);
-				Log.i("fragHelper","añadido fragment 1 a la vista portrait");
-			}else{
-				transaction.add(R.id.infoFrame,setInfo2,INFO2_TAG);
-				transaction.commit();
-				view.setFragmentsAdded(true);
-				Log.i("fragHelper","añadido fragment 2 a la vista portrait");
-			}
-		}else if(orientation == Configuration.ORIENTATION_LANDSCAPE  ){
-			if(view.getActivePanel() == VSetManager.INFO1){
-				transaction.add(R.id.infoFrame,setInfo1,INFO1_TAG);
-				transaction.commit();
-				view.setFragmentsAdded(true);
-				Log.i("fragHelper","añadido fragment 1 a la vista landscape");
-			}else{
-				transaction.add(R.id.infoFrame,setInfo2,INFO2_TAG);
-				transaction.commit();
-				view.setFragmentsAdded(true);
-				Log.i("fragHelper","añadido fragment 2 a la vista landscape");
-			}
+		int activeInfoPanel = view.getActivePanel();
+		
+		switch(activeInfoPanel){
+		case VSetManager.INFO1:
+			transaction.add(R.id.infoFrame,setInfo1,INFO1_TAG);
+			transaction.commit();
+			view.setFragmentsAdded(true);
+			break;
+		case VSetManager.INFO2:
+			transaction.add(R.id.infoFrame,setInfo2,INFO2_TAG);
+			transaction.commit();
+			view.setFragmentsAdded(true);
+			break;
 		}
-			
 	}
 	
 	/**
@@ -105,7 +95,7 @@ public class FragmentHelper {
 	}
 	
 	/**
-	 * Switch beetween info panel fragments 
+	 * Switch between info panel fragments 
 	 */
 	
 	public void switchFragment(){
@@ -115,36 +105,37 @@ public class FragmentHelper {
 		switch(view.getActivePanel()){
 		
 		case VSetManager.INFO1:
+			
 			transaction.replace(R.id.infoFrame, setInfo2,INFO2_TAG);
-			//transaction.add(R.id.infoFrame,setInfo2, INFO2_TAG);
-			//transaction.remove(fragmentManager.findFragmentByTag(INFO1_TAG));
-			//transaction.detach(fragmentManager.findFragmentByTag(INFO1_TAG));
 			transaction.commit();
-			//transaction.add(R.id.infoFrame,setInfo2);
-			Log.i("fragHelper", "switched to info2");
+			
 			break;
 		case VSetManager.INFO2:
+			
 			transaction.replace(R.id.infoFrame, setInfo1, INFO1_TAG);
-			//transaction.remove(fragmentManager.findFragmentByTag(INFO2_TAG));
 			transaction.commit();
-			//transaction.add(R.id.infoFrame,setInfo1);
-			Log.i("fragHelper", "switched to info1");
+			
 			break;
-			/*
-
-			transaction.commit();
-			Log.i("fragHelper","switch changes commited");*/
 		}
 	}
+	
+	/**
+	 * Remove the fragments attached to the main view
+	 */
 
 	public void resetFragments() {
+		
 		FragmentTransaction transaction = fragmentManager.beginTransaction();
+		
 		if(fragmentManager.findFragmentByTag(INFO2_TAG)!=null){
+			
 			transaction.remove(fragmentManager.findFragmentByTag(INFO2_TAG));
+			
 		}else if(fragmentManager.findFragmentByTag(INFO1_TAG)!= null){
+			
 			transaction.remove(fragmentManager.findFragmentByTag(INFO1_TAG));
 		}
-		view.setFragmentsAdded(false);
 		transaction.commit();
+		view.setFragmentsAdded(false); 
 	}
 }

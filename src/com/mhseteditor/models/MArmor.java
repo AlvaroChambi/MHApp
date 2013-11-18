@@ -26,6 +26,8 @@ public class MArmor {
 	
 	
 	public MArmor(){
+		numSlots = 0;
+		jewelCount = 0;
 		skills = new HashMap<String,Integer>();
 	}
 	
@@ -220,12 +222,12 @@ public class MArmor {
 	}
 	
 	/**
-	 * Return a skill value taking his key for paramenter
+	 * Return a skill value taking his key for parameter
 	 * @param key
 	 * @return
 	 */
 	
-	public int getSkill(String key){
+	public int getSkillValue(String key){
 		int resul = 0;
 		if(skills.get(key)!= null){
 			resul = skills.get(key);

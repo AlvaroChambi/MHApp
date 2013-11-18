@@ -61,7 +61,7 @@ public class GaleryImageAdapter extends BaseAdapter {
         
         return inflatedView;
     }
-
+    
     // references to our images
     private Integer[] mThumbIds = {
     		

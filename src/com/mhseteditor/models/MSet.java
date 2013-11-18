@@ -196,10 +196,10 @@ public class MSet {
 			
 			key = iterator.next();
 			if(!totalSkills.containsKey(key)){
-				totalSkills.put(key, armor.getSkill(key));
+				totalSkills.put(key, armor.getSkillValue(key));
 				skillsCount++;
 			}else{
-				modifier = totalSkills.get(key) + armor.getSkill(key);
+				modifier = totalSkills.get(key) + armor.getSkillValue(key);
 				totalSkills.put(key, modifier);
 			}
 		}

@@ -20,42 +20,42 @@
                  android:layout_width="0dp"
                  android:layout_weight="1"
                  android:layout_height="wrap_content"
-                 android:gravity="right"
+                 android:gravity="center"
                  android:textColor="@color/white"  />
              <TextView
                  android:id="@+id/skill_chest"
                  android:layout_width="0dp"
                  android:layout_weight="1"
                  android:layout_height="wrap_content"
-                 android:gravity="right"
+                 android:gravity="center"
                  android:textColor="@color/white"  />
              <TextView
                  android:id="@+id/skill_hands"
                  android:layout_width="0dp"
                  android:layout_weight="1"
                  android:layout_height="wrap_content"
-                 android:gravity="right"
+                 android:gravity="center"
                  android:textColor="@color/white"  />
              <TextView
                  android:id="@+id/skill_waist"
                  android:layout_width="0dp"
                  android:layout_weight="1"
                  android:layout_height="wrap_content"
-                 android:gravity="right"
+                 android:gravity="center"
                  android:textColor="@color/white"  />
              <TextView
                  android:id="@+id/skill_feet"
                  android:layout_width="0dp"
                  android:layout_weight="1"
                  android:layout_height="wrap_content"
-                 android:gravity="right"
+                 android:gravity="center"
                  android:textColor="@color/white"  />
              <TextView
                  android:id="@+id/skill_charm"
                  android:layout_width="0dp"
                  android:layout_weight="1"
                  android:layout_height="wrap_content"
-                 android:gravity="right"
+                 android:gravity="center"
                  android:textColor="@color/white"  />
     
 
